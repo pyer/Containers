@@ -9,5 +9,5 @@ My Docker containers
 ### How to quit bash without stopping container ?
 `ctrl-P ctrl-Q`
 
-ctrl-C and crtl-D causes container shutdown
+ctrl-C and crtl-D cause container shutdown
 
