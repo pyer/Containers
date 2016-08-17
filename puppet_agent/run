@@ -1,0 +1,2 @@
+#!/bin/bash
+sudo docker run -ti --name puppetagent --hostname puppetagent pyer/puppetagent
