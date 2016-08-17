@@ -13,7 +13,7 @@ Puppet manifests and modules are in /opt/puppet/code.
 
 ### Getting started
 
-1. Build the container puppetagent with `./build` script
+1. Build this container with `./build` script
 
 2. Start it with `./run` script
 
@@ -23,5 +23,12 @@ Puppet manifests and modules are in /opt/puppet/code.
 
 4. On Puppet master, sign the agent certificate request: `puppet cert sign puppetagent.home`
 
-5. On Puppet agent, run Puppet to update the system configuration
+5. Puppet is now available in this puppet_agent container, try `puppet agent -v`
+
+
+### Using Puppet
+
+Important files are in "/opt/puppet/code" host directory.
+
+This directory is shared with Puppet master container and can be changed in "run" scripts.
 
