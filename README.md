@@ -3,11 +3,14 @@ My Docker containers
 
 # Tips and tricks
 
-### How to get bash into a running container ?
+### How to get a console from a running container ?
 `docker attach container`
 
-### How to quit bash without stopping container ?
-`ctrl-P ctrl-Q`
+Close the console with `ctrl-P ctrl-Q` without shutdown the container.
 
-ctrl-C and crtl-D cause container shutdown
+`ctrl-C` closes te console and shutdowns the container.
 
+### How to get a bash process into a running container ?
+`docker exec -ti container /bin/bash`
+
+`ctrl-C` interrupts the bash process and lets the container running.
