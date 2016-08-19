@@ -24,13 +24,9 @@ Puppet master on Webrick is deprecated. The other recommended way to run the Pup
 
 1. This Puppet server container is called "puppetmaster" as my "puppet_master" container. This allows switching "puppet_master" and "puppet_server" containers without impact on agents.
 
-2. sshd daemon is opional and is not required by Puppet server.
+2. Puppet manifests and modules are in "/opt/puppet/code" directory.
 
+3. sshd daemon is opional and is not required by Puppet server.
 
-### ssh connection
+4. Connecting via SSH to Puppet server is done by `ssh root@<IPaddress>` where IP address can be retrieve with `docker inspect puppetmaster`
 
-1. Retrieve the Puppet server IP address: `docker inspect puppetmaster`
-
-2. Connect: `ssh root@<IPaddress>`
-
-What else ?
