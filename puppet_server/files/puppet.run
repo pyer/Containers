@@ -1,0 +1,3 @@
+#!/bin/sh
+echo "Starting Puppet server..."
+exec /opt/puppetlabs/server/apps/puppetserver/bin/puppetserver foreground

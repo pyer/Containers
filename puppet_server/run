@@ -1,0 +1,2 @@
+#!/bin/bash
+sudo docker run -ti --name puppetmaster --hostname puppetmaster.home -v /opt/puppet/code:/etc/puppetlabs/code pyer/puppetmaster
