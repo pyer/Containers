@@ -1,0 +1,19 @@
+# /etc/profile: system-wide .profile file for the Bourne shell (sh(1))
+# and Bourne compatible shells (bash(1), ksh(1), ash(1), ...).
+
+# don't put duplicate lines or lines starting with space in the history.
+# See bash(1) for more options
+HISTCONTROL=ignoreboth
+
+# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+HISTSIZE=1000
+HISTFILESIZE=2000
+
+# some more ls aliases
+alias ll='ls -hlF'
+alias la='ls -A'
+
+alias bye='exit'
+
+PATH="/bin:/sbin"
+PAGER="less -E"

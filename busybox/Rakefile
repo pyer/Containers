@@ -1,0 +1,23 @@
+# Busybox container tasks
+
+task :default => [:run]
+
+task :clean do
+  Dir['*~'].each { |fn| rm_f fn }
+  Dir['build/*~'].each { |fn| rm_f fn }
+  rm_f 'rootfs.tar'
+end
+
+task :rootfs do
+  sh "sudo docker build --rm -t rootfs build/"
+  sh "sudo docker run rootfs cat /rootfs.tar >rootfs.tar"
+  sh "sudo docker rmi -f rootfs"
+end
+
+task :build => [:rootfs] do
+  sh "sudo docker build --rm -t busybox ."
+end
+
+task :run do
+  sh "sudo docker run -v /opt:/opt -ti busybox"
+end
