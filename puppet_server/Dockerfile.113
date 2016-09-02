@@ -31,8 +31,7 @@ RUN rm /tmp/puppetlabs-release-trusty.deb
 RUN apt-get autoclean
 
 # Configure Puppet server
-COPY files/puppet.conf /etc/puppetlabs/puppet/
-COPY files/puppetserver.conf /etc/puppetlabs/puppetserver/conf.d/
+COPY files/puppet.conf /etc/puppet/
 
 # Launch Puppet master as a service
 RUN mkdir /etc/service/puppet
