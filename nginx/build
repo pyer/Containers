@@ -1,0 +1,12 @@
+#!/bin/sh
+base=$(pwd)
+name=$(basename $base)
+container_name="running_nginx"
+[ -d log ]  || mkdir log
+[ -d site ] || mkdir site
+docker stop $container_name
+docker rm $container_name
+docker rmi $name 
+docker build --rm -t $name .
+docker run -d -p 80:80 -v $base/site:/home -v $base/log:/var/log/nginx --name $container_name $name
+docker ps -a
