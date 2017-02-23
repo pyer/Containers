@@ -5,4 +5,7 @@ RUN apk add --no-cache tzdata
 RUN echo "Europe/Paris" >/etc/TZ
 RUN cp /usr/share/zoneinfo/Europe/Paris /etc/localtime
 # Customize
+COPY files/profile /etc/profile
 COPY files/aliases.sh /etc/profile.d/
+RUN rm -rf /usr/local
+RUN deluser postgres
