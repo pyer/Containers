@@ -1,0 +1,19 @@
+#!/bin/sh
+base=$(pwd)
+name="pyer/$(basename $base):9.6"
+container_name="running_postgres"
+docker stop $container_name
+rm -rf data
+mkdir data
+docker rm $container_name
+docker rmi $name 
+echo "Building..."
+docker build --rm -t $name .
+echo "Running..."
+docker run -d -p 5433:5432 -v $base/data:/home --name $container_name $name
+#
+#
+# Connect to Postgres server from outside:
+# psql -U postgres -h localhost -p 5433
+# and inside:
+# docker exec -ti running_postgres psql -U postgres
