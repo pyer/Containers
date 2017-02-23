@@ -1,0 +1,1 @@
+docker run -ti pyer/alpine:3.3 ash -l
