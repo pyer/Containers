@@ -1,5 +1,0 @@
-#!/bin/sh
-name=$(basename $(pwd))
-docker rmi $name 
-docker build --rm -t $name .
-docker run --rm -ti $name
