@@ -9,3 +9,5 @@ COPY files/profile /etc/profile
 COPY files/aliases.sh /etc/profile.d/
 RUN rm -rf /usr/local
 RUN deluser postgres
+ENV PATH=/usr/sbin:/usr/bin:/sbin:/bin
+CMD ["/bin/busybox", "ash", "-l"]

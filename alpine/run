@@ -1,1 +1,1 @@
-docker run -ti pyer/alpine:3.3 ash -l
+docker run -ti --rm --name ash pyer/alpine:3.3 $@

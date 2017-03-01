@@ -2,4 +2,4 @@
 name="pyer/$(basename $(pwd)):3.3"
 docker rmi $name 
 docker build --rm -t $name .
-docker run --rm -ti $name /bin/busybox ash -l
+docker run --rm -ti $name
