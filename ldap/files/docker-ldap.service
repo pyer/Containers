@@ -1,0 +1,14 @@
+[Unit]
+Description=LDAP container
+Documentation=[https://docs.docker.com/engine/admin/systemd/]
+Requires=docker.service
+After=docker.service
+
+[Service]
+Restart=on-failure
+ExecStart=/usr/bin/docker start -a ldap
+ExecStop=/usr/bin/docker stop -t 60 ldap
+SuccessExitStatus=143
+
+[Install]
+WantedBy=default.target
