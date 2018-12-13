@@ -17,7 +17,6 @@ MySQL : `mariaDB-10.1.32-r1`
 
 ## Example
 
-Connecting to "mysql" server through "sql-net" network
-"--host=mysql --port=3306 --user=wp --password=wp wordpress" are mysql client arguments
+Connecting to "mysql" server through "sql-net" network with arguments "--host=mysql --port=3306 --user=wp --password=wp wordpress"
 
 `docker run -ti --rm --network sql-net pyer/mysql-client --host=mysql --port=3306 --user=wp --password=wp wordpress`
