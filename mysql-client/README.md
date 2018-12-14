@@ -3,6 +3,7 @@
 ## Usage
 
 **Build :** `docker build --rm -t pyer/mysql-client .`
+
 **Run   :** `docker run -ti --rm pyer/mysql-client <args>`
 
 This container is deleted after exit (--rm)
