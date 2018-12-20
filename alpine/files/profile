@@ -5,6 +5,8 @@ export PAGER=less
 export PS1='\h:\w\$ '
 umask 022
 
-for script in /etc/profile.d/*.sh ; do
-  [ -r $script ] && . $script
-done
+stty cols 132
+
+alias ll='ls -hlF'
+alias la='ls -A'
+alias bye='exit'

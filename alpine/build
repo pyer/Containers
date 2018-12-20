@@ -1,5 +1,7 @@
 #!/bin/sh
-name="pyer/$(basename $(pwd)):3.3"
+name="pyer/$(basename $(pwd))"
+docker stop alpine
+docker rm alpine
 docker rmi $name 
 docker build --rm -t $name .
-docker run --rm -ti $name
+docker run -ti --name="alpine" $name
