@@ -1,4 +1,6 @@
-FROM pyer/nginx:1.8
+FROM pyer/nginx
 MAINTAINER Pierre Bazonnard (Pyer)
 #
-COPY conf/nginx.conf /etc/nginx/
+RUN mkdir /var/www/html
+COPY default.conf /etc/nginx/conf.d/
+#

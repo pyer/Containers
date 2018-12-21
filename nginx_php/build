@@ -1,10 +1,9 @@
 #!/bin/sh
 base=$(pwd)
-name="pyer/$(basename $base):1.8"
-container_name="running_nginx"
-[ -d site ] || mkdir site
+name="pyer/$(basename $base)"
+container_name="nginx_8081"
 docker stop $container_name
 docker rm $container_name
 docker rmi $name 
 docker build --rm -t $name .
-docker run -d -p 80:80 -v /srv/php:/home --link running_php:php --name $container_name $name
+docker run -d -v /opt/site:/var/www/html --publish 8081:80 --network php-net --name $container_name $name

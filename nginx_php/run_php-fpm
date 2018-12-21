@@ -1,0 +1,8 @@
+#!/bin/bash
+container_name="php"
+docker stop $container_name
+docker rm $container_name
+# Create private network
+docker network ls | grep "php-net" || docker network create php-net
+# Run PHP server
+docker run -d -v /opt/site:/var/www/html --publish 9000:9000 --network php-net --name $container_name php:7.2-fpm-alpine
