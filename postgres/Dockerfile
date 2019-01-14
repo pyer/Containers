@@ -1,24 +1,20 @@
-FROM pyer/alpine:3.3
-
-RUN deluser postgres
-# 116 is my local postgres UID and 125 is postgres GID
-#RUN addgroup -g 125 postgres
-#RUN adduser -D -u 116 -g "PostgreSQL administrator" -h /home -s /bin/ash postgres
-RUN adduser -D -u 1000 -g "PostgreSQL administrator" -h /home -s /bin/ash postgres
-
-COPY files/gosu /usr/bin/
-RUN chmod +x /usr/bin/gosu
-RUN echo "@edge http://nl.alpinelinux.org/alpine/edge/main" >> /etc/apk/repositories && apk update
-#RUN apk add "libpq@edge<9.7" "postgresql-client@edge<9.7" "postgresql@edge<9.7" "postgresql-contrib@edge<9.7"
-RUN apk add "libpq@edge<9.7" "postgresql-client@edge<9.7" "postgresql@edge<9.7"
+FROM alpine:3.7
+MAINTAINER Pierre Bazonnard (Pyer)
+#
+RUN echo "@edge http://nl.alpinelinux.org/alpine/edge/main" >> /etc/apk/repositories
+RUN apk update
+RUN apk add --no-cache "libpq@edge<11.1" "postgresql-client@edge<11.1" "postgresql@edge<11.1"
+RUN apk add --no-cache tzdata
+# Change TimeZone
+RUN echo "Europe/Paris" >/etc/TZ
+RUN cp /usr/share/zoneinfo/Europe/Paris /etc/localtime
 RUN rm -rf /var/cache/apk/*
-
+# Environment
+ENV CHARSET UTF-8
 ENV LANG en_US.utf8
 ENV PGDATA /home
-VOLUME /home
-
-COPY files/entrypoint.sh /
+RUN chown postgres:postgres /home
+# Entry point
+ADD files/entrypoint.sh /
 ENTRYPOINT ["/entrypoint.sh"]
-
-EXPOSE 5433
-CMD ["postgres"]
+USER postgres
