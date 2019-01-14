@@ -4,7 +4,9 @@ Docker image Alpine JRE8 Tomcat 8.5
 ## Usage
 
 **Build :** `docker build --rm -t pyer/tomcat .`
+
 **Run   :** `docker run -d -p 8080:8080 -v /opt/base:/home/tomcat --name tomcat pyer/tomcat`
+
 **Shell :** `docker exec -ti tomcat ash -l`
 
 '/opt/base' drectory is Tomcat CATALINA_BASE
