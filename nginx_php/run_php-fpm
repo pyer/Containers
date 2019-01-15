@@ -5,4 +5,4 @@ docker rm $container_name
 # Create private network
 docker network ls | grep "php-net" || docker network create php-net
 # Run PHP server
-docker run -d -v /opt/site:/var/www/html --network php-net --name $container_name php:7.2-fpm-alpine
+docker run -d -v /opt/site:/var/www/html --network php-net --name $container_name php:7.3-fpm-alpine
