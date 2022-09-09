@@ -1,4 +1,4 @@
 #!/bin/sh
 docker stop httpd
 docker rm httpd
-docker run -d -p 8080:80 -v "$PWD/htdocs":/usr/local/apache2/htdocs -v "$PWD/conf":/usr/local/apache2/conf --name httpd httpd:2.4.54-alpine
+docker run -d -p 8080:80 -p 8081:443 -v "$PWD/htdocs":/usr/local/apache2/htdocs -v "$PWD/conf":/usr/local/apache2/conf --name httpd httpd:2.4.54-alpine
