@@ -1,3 +1,6 @@
+conf/*.crt
+conf/*.csr
+conf/*.key
 conf/rootCA.*
-conf/selfsigned.*
+certificates/letsencrypt/certs/*
 logs/*
