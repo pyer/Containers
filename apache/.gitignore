@@ -1,2 +1,3 @@
 conf/rootCA.*
 conf/selfsigned.*
+logs/*
