@@ -5,9 +5,7 @@
 #    SSLCertificateFile     "/usr/local/apache2/conf/bazonnard.fr.crt"
 #    SSLCertificateKeyFile "/usr/local/apache2/conf/bazonnard.fr.key"
 
-DOMAIN="bazonnard.fr"
-COMMON_NAME="*.$DOMAIN"
-SUBJECT="/C=CA/ST=None/L=NB/O=None/CN=$COMMON_NAME"
+SUBJECT="/C=CA/ST=None/L=NB/O=None/CN=bazonnard.fr"
 DAYS=93
 
 CONFDIR=../../conf
@@ -19,7 +17,9 @@ echo "keyUsage = digitalSignature, nonRepudiation, keyEncipherment, dataEncipher
 echo "subjectAltName = @alt_names" >>v3.ext
 echo "" >>v3.ext
 echo "[alt_names]" >>v3.ext
-echo "DNS.1 = $COMMON_NAME" >>v3.ext
+echo "DNS.1 = bazonnard.fr" >>v3.ext
+echo "DNS.2 = api.bazonnard.fr" >>v3.ext
+echo "DNS.3 = www.bazonnard.fr" >>v3.ext
 
 # Create root key
 sudo openssl genrsa -out ${CONFDIR}/rootCA.key 2048
