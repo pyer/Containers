@@ -23,7 +23,7 @@ do
             --preferred-challenges=dns \
             --manual-auth-hook authenticate.sh \
             --manual-cleanup-hook cleanup.sh \
-            --email "pierre.bazonnard@logista.com" \
+            --email "$EMAIL" \
             -d "${domain}" \
             --server https://acme-v02.api.letsencrypt.org/directory
             "$@"
